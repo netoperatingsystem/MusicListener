@@ -7,7 +7,7 @@ Application for listening music
 - Support for \*.mp3 and \*.wav formats
 - Listing all songs from device
 - Displaying current and total song time
-- 4
+- Animation while playing a song
 - 5
 
 ## If there is time
