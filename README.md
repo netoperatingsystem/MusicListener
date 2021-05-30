@@ -10,9 +10,6 @@ Application for listening music
 - Displaying current and total song time
 - Animation while playing a song
 
-## If there is time
-- ...
-
 ## Methodology
 
 Increments
