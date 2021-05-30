@@ -4,11 +4,11 @@ Application for listening music
 
 ## Features: 
 
+- Playing songs
 - Support for \*.mp3 and \*.wav formats
 - Listing all songs from device
 - Displaying current and total song time
 - Animation while playing a song
-- 5
 
 ## If there is time
 - ...
