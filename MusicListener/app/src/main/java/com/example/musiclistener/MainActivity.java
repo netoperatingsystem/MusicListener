@@ -91,8 +91,6 @@ public class MainActivity extends AppCompatActivity {
         {
             items[i] = mySongs.get(i).getName().toString().replace(".mp3", "");
         }
-        /*ArrayAdapter<String> myAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, items);
-        listView.setAdapter(myAdapter);*/
 
         customAdapter customAdapter = new customAdapter();
         listView.setAdapter(customAdapter);
