@@ -139,8 +139,8 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
 
-        String endTime = createTime(mediaPlayer.getDuration());
-        txtsstop.setText(endTime);
+        final String[] endTime = {createTime(mediaPlayer.getDuration())};
+        txtsstop.setText(endTime[0]);
 
         final Handler handler = new Handler();
         final int delay = 1000;
@@ -173,9 +173,7 @@ public class PlayerActivity extends AppCompatActivity {
 
         mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp) {
-                btnnext.performClick();
-            }
+            public void onCompletion(MediaPlayer mp) { btnnext.performClick(); }
         });
 
         int audiosessionId = mediaPlayer.getAudioSessionId();
@@ -197,6 +195,11 @@ public class PlayerActivity extends AppCompatActivity {
                 mediaPlayer.start();
                 btnplay.setBackgroundResource(R.drawable.ic_pause);
                 startAnimation(imageView);
+                String endTime = createTime(mediaPlayer.getDuration());
+                txtsstop.setText(endTime);
+                seekmusic.setMax(mediaPlayer.getDuration());
+                updateseekbar.start();
+                mediaPlayer.start();
                 int audiosessionId = mediaPlayer.getAudioSessionId();
                 if (audiosessionId != -1)
                 {
@@ -218,6 +221,11 @@ public class PlayerActivity extends AppCompatActivity {
                 mediaPlayer.start();
                 btnplay.setBackgroundResource(R.drawable.ic_pause);
                 startAnimation(imageView);
+                String endTime = createTime(mediaPlayer.getDuration());
+                txtsstop.setText(endTime);
+                seekmusic.setMax(mediaPlayer.getDuration());
+                updateseekbar.start();
+                mediaPlayer.start();
                 int audiosessionId = mediaPlayer.getAudioSessionId();
                 if (audiosessionId != -1)
                 {
