@@ -39,7 +39,7 @@
             android:singleLine="true"
             android:padding="6dp"
             android:scrollHorizontally="true"
-            android:text="Song Name"
+            android:text="@string/song_name"
             android:textColor="#FFF"
             android:textSize="15sp"></TextView>
 
