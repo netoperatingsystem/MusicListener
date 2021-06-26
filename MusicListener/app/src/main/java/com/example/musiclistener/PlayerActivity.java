@@ -59,7 +59,7 @@ public class PlayerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
 
-        getSupportActionBar().setTitle("Now Playing");
+        getSupportActionBar().setTitle(getString(R.string.now_playing));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
@@ -198,7 +198,6 @@ public class PlayerActivity extends AppCompatActivity {
                 txtsstop.setText(endTime);
                 seekmusic.setMax(mediaPlayer.getDuration());
                 updateseekbar.start();
-                mediaPlayer.start();
                 int audiosessionId = mediaPlayer.getAudioSessionId();
                 if (audiosessionId != -1)
                 {
@@ -224,7 +223,6 @@ public class PlayerActivity extends AppCompatActivity {
                 txtsstop.setText(endTime);
                 seekmusic.setMax(mediaPlayer.getDuration());
                 updateseekbar.start();
-                mediaPlayer.start();
                 int audiosessionId = mediaPlayer.getAudioSessionId();
                 if (audiosessionId != -1)
                 {

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MusicListener</string>
     <string name="song_name">Song Name</string>
+    <string name="now_playing">Now Playing</string>
 </resources>
