@@ -31,7 +31,6 @@ public class PlayerActivity extends AppCompatActivity {
     ImageView imageView;
 
     String sname;
-    public static final String EXTRA_NAME = "song_name";
     static MediaPlayer mediaPlayer;
     int position;
     ArrayList<File> mySongs;
@@ -255,6 +254,10 @@ public class PlayerActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Logo animation while changing song
+     * @param view
+     */
     public void startAnimation(View view)
     {
         ObjectAnimator animator = ObjectAnimator.ofFloat(imageView, "rotation", 0f, 360f);

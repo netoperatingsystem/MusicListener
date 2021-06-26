@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Using dexter library to ask for runtime permissions
+     */
     public void runtimePermission()
     {
         Dexter.withContext(this).withPermissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO)
@@ -55,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                 }).check();
     }
 
+    /**
+     * Method which returns an array list of *.mp3 and *.wav files from external storage
+     * @param file
+     * @return
+     */
     public ArrayList<File> findSong (File file)
     {
         ArrayList<File> arrayList = new ArrayList<>();
@@ -78,13 +86,18 @@ public class MainActivity extends AppCompatActivity {
         return arrayList;
     }
 
+    /**
+     * Method to display songs inside list view
+     */
     void displaySongs()
     {
         final ArrayList<File> mySongs = findSong(Environment.getExternalStorageDirectory());
         items = new String[mySongs.size()];
         for (int i = 0; i < mySongs.size(); i++)
         {
-            items[i] = mySongs.get(i).getName().toString().replace(".mp3", "");
+            items[i] = mySongs.get(i).getName()
+                    .replace(".mp3", "")
+                    .replace(".wav", "");
         }
 
         customAdapter customAdapter = new customAdapter();
@@ -102,6 +115,9 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Creating custom adapter for custom view of each song in main activity
+     */
     class customAdapter extends BaseAdapter
     {
         @Override
