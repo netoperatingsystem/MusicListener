@@ -2,6 +2,7 @@ package com.example.musiclistenerremake;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -30,7 +31,7 @@ public class PlayerActivity extends AppCompatActivity {
     static Uri uri;
     static MediaPlayer mediaPlayer;
     private Handler handler = new Handler();
-
+    private Thread playThread, prevThread, nextThread;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,8 @@ public class PlayerActivity extends AppCompatActivity {
         //mediaPlayer = new MediaPlayer();
         initViews();
         getIntentMethod();
+        song_name.setText(listSongs.get(position).getTitle());
+        artist_name.setText(listSongs.get(position).getArtist());
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -70,6 +73,72 @@ public class PlayerActivity extends AppCompatActivity {
             }
         });
     }
+
+    protected void onResume(){
+        playThreadBtn();
+        nextThreadBtn();
+        prevThreadBtn();
+        super.onResume();
+    }
+
+    private void prevThreadBtn() {
+    }
+
+    private void nextThreadBtn() {
+    }
+
+    private void playThreadBtn() {
+        playThread = new Thread()
+        {
+            public void run() {
+                super.run();
+                playPauseBtn.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View v) {
+                        playPauseBtnClicked();
+                    }
+                });
+            }
+        };
+        playThread.start();
+    }
+
+    private void playPauseBtnClicked() {
+        if (mediaPlayer.isPlaying())
+        {
+            playPauseBtn.setImageResource(R.drawable.ic_baseline_play_arrow_24);
+            mediaPlayer.pause();
+            seekBar.setMax(mediaPlayer.getDuration() / 1000);
+            PlayerActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(mediaPlayer != null)
+                    {
+                        int mCurrentPosition = mediaPlayer.getCurrentPosition() / 1000;
+                        seekBar.setProgress(mCurrentPosition);
+                    }
+                    handler.postDelayed(this, 1000);
+                }
+            });
+        }
+        else
+        {
+            playPauseBtn.setImageResource(R.drawable.ic_baseline_pause_24);
+            mediaPlayer.start();
+            seekBar.setMax(mediaPlayer.getDuration() / 1000);
+            PlayerActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if(mediaPlayer != null)
+                    {
+                        int mCurrentPosition = mediaPlayer.getCurrentPosition() / 1000;
+                        seekBar.setProgress(mCurrentPosition);
+                    }
+                    handler.postDelayed(this, 1000);
+                }
+            });
+        }
+    }
+
 
     private String formattedTime(int mCurrentPosition) {
         String totalOut = "";
@@ -111,6 +180,7 @@ public class PlayerActivity extends AppCompatActivity {
         }
 
         seekBar.setMax(mediaPlayer.getDuration() / 1000);
+        metaData(uri);
     }
 
     private void initViews() {
@@ -126,5 +196,14 @@ public class PlayerActivity extends AppCompatActivity {
         repeatBtn = findViewById(R.id.id_repeat);
         playPauseBtn = findViewById(R.id.play_pause);
         seekBar = findViewById(R.id.seekBar);
+    }
+
+    private void metaData( Uri uri)
+    {
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        retriever.setDataSource(uri.toString());
+        int durationTotal = Integer.parseInt(listSongs.get(position).getDuration()) / 1000;
+        duration_total.setText(formattedTime(durationTotal));
+
     }
 }
