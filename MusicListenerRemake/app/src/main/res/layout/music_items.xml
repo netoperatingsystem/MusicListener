@@ -23,7 +23,15 @@
         android:layout_marginStart="10dp"
         android:layout_centerVertical="true"
         android:textColor="@color/musicItemsColor"
-        android:id="@+id/music_file_name"
-        />
+        android:layout_toStartOf="@+id/menuMore"
+        android:id="@+id/music_file_name" />
+
+    <ImageView
+        android:id="@+id/menuMore"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_baseline_more_vert_24" />
 
 </RelativeLayout>
