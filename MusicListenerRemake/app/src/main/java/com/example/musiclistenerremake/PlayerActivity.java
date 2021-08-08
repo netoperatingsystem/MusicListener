@@ -7,18 +7,18 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
+import static com.example.musiclistenerremake.AlbumDetailsAdapter.albumFiles;
 import static com.example.musiclistenerremake.MainActivity.musicFiles;
 import static com.example.musiclistenerremake.MainActivity.repeatBoolean;
 import static com.example.musiclistenerremake.MainActivity.shuffleBoolean;
@@ -39,7 +39,6 @@ public class PlayerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_player);
-        //mediaPlayer = new MediaPlayer();
         initViews();
         getIntentMethod();
         song_name.setText(listSongs.get(position).getTitle());
@@ -337,6 +336,17 @@ public class PlayerActivity extends AppCompatActivity {
 
     private void getIntentMethod() {
         position = getIntent().getIntExtra("position", -1);
+        String sender = getIntent().getStringExtra("sender");
+        if(sender != null && sender.equals("albumDetails"))
+        {
+            listSongs = albumFiles;
+        }
+        else
+        {
+            listSongs = musicFiles;
+        }
+
+
         listSongs = musicFiles;
         if (listSongs != null)
         {
@@ -376,12 +386,27 @@ public class PlayerActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.seekBar);
     }
 
-    private void metaData( Uri uri)
+    private void metaData(Uri uri)
     {
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
         retriever.setDataSource(uri.toString());
         int durationTotal = Integer.parseInt(listSongs.get(position).getDuration()) / 1000;
         duration_total.setText(formattedTime(durationTotal));
+        byte[] art = retriever.getEmbeddedPicture();
 
+        if(art != null)
+        {
+            Glide.with(this)
+                    .asBitmap()
+                    .load(art)
+                    .into(cover_art);
+        }
+        else
+        {
+            Glide.with(this)
+                    .asBitmap()
+                    .load(R.drawable.noart)
+                    .into(cover_art);
+        }
     }
 }

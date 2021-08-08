@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
@@ -46,6 +47,21 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.file_name.setText(mFiles.get(position).getTitle());
+        byte[] image = getAlbumArt(mFiles.get(position).getPath());
+
+        if (image != null)
+        {
+            Glide.with(mContext).asBitmap()
+                    .load(image)
+                    .into(holder.album_art);
+        }
+        else
+        {
+            Glide.with(mContext)
+                    .load(R.drawable.noart)
+                    .into(holder.album_art);
+        }
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,4 +125,14 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
             menuMore = itemView.findViewById(R.id.menuMore);
         }
     }
+
+    private byte[] getAlbumArt(String uri)
+    {
+        MediaMetadataRetriever retriever = new MediaMetadataRetriever();
+        retriever.setDataSource(uri);
+        byte[] art = retriever.getEmbeddedPicture();
+        retriever.release();
+        return art;
+    }
+
 }
