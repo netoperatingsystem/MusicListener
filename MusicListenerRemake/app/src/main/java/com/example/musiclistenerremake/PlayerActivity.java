@@ -22,6 +22,7 @@ import static com.example.musiclistenerremake.AlbumDetailsAdapter.albumFiles;
 import static com.example.musiclistenerremake.MainActivity.musicFiles;
 import static com.example.musiclistenerremake.MainActivity.repeatBoolean;
 import static com.example.musiclistenerremake.MainActivity.shuffleBoolean;
+import static com.example.musiclistenerremake.MusicAdapter.mFiles;
 
 public class PlayerActivity extends AppCompatActivity {
 
@@ -343,11 +344,9 @@ public class PlayerActivity extends AppCompatActivity {
         }
         else
         {
-            listSongs = musicFiles;
+            listSongs = mFiles;
         }
 
-
-        listSongs = musicFiles;
         if (listSongs != null)
         {
             playPauseBtn.setImageResource(R.drawable.ic_baseline_pause_24);
