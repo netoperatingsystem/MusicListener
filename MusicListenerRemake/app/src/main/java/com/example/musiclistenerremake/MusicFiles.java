@@ -1,5 +1,6 @@
 package com.example.musiclistenerremake;
 
+
 public class MusicFiles {
     private String path;
     private String title;
@@ -8,6 +9,15 @@ public class MusicFiles {
     private String duration;
     private String id;
 
+    /**
+     * Contructor of model class
+     * @param path - song path from tag
+     * @param title - song title from tag
+     * @param artist - song artist from tag
+     * @param album - song album from tag
+     * @param duration - song duration from tag
+     * @param id - song id
+     */
     public MusicFiles(String path, String title, String artist, String album, String duration, String id) {
         this.path = path;
         this.title = title;

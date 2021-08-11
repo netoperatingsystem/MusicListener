@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static com.example.musiclistenerremake.AlbumDetailsAdapter.albumFiles;
-import static com.example.musiclistenerremake.MainActivity.musicFiles;
 import static com.example.musiclistenerremake.MainActivity.repeatBoolean;
 import static com.example.musiclistenerremake.MainActivity.shuffleBoolean;
 import static com.example.musiclistenerremake.MusicAdapter.mFiles;
@@ -260,6 +259,11 @@ public class PlayerActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Randomizer for random song button
+     * @param i
+     * @return random.nextInt(i + 1)
+     */
     private int getRandom(int i) {
         Random random = new Random();
         return random.nextInt(i + 1);
@@ -317,7 +321,11 @@ public class PlayerActivity extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Converted seconds to time format (mm:ss)
+     * @param mCurrentPosition - current time position of song
+     * @return formatted time
+     */
     private String formattedTime(int mCurrentPosition) {
         String totalOut = "";
         String totalNew = "";
@@ -385,6 +393,10 @@ public class PlayerActivity extends AppCompatActivity {
         seekBar = findViewById(R.id.seekBar);
     }
 
+    /**
+     * Gets metadata from files (tags)
+     * @param uri - path to song
+     */
     private void metaData(Uri uri)
     {
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
