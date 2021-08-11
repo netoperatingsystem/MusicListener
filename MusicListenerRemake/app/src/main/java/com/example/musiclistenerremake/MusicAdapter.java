@@ -126,6 +126,11 @@ public class MusicAdapter extends RecyclerView.Adapter<MusicAdapter.MyViewHolder
         }
     }
 
+    /**
+     * Get song art from file tag
+     * @param uri - song directory
+     * @return art - song art
+     */
     private byte[] getAlbumArt(String uri)
     {
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();

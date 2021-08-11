@@ -28,6 +28,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder> {
         this.albumFiles = albumFiles;
     }
 
+
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -65,6 +66,9 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder> {
         return albumFiles.size();
     }
 
+    /**
+     *
+     */
     public class MyHolder extends RecyclerView.ViewHolder {
         ImageView album_image;
         TextView album_name;
@@ -77,6 +81,11 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder> {
     }
 
 
+    /**
+     * Get song art from file tag
+     * @param uri - song directory
+     * @return art - song art
+     */
     private byte[] getAlbumArt(String uri)
     {
         MediaMetadataRetriever retriever = new MediaMetadataRetriever();
