@@ -14,8 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.util.ArrayList;
 
 public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder> {
@@ -66,9 +64,7 @@ public class AlbumAdapter extends RecyclerView.Adapter<AlbumAdapter.MyHolder> {
         return albumFiles.size();
     }
 
-    /**
-     *
-     */
+
     public class MyHolder extends RecyclerView.ViewHolder {
         ImageView album_image;
         TextView album_name;

@@ -13,7 +13,6 @@ import androidx.viewpager.widget.ViewPager;
 import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -23,13 +22,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
 import org.jetbrains.annotations.NotNull;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -46,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         permission();
     }
 
+
     private void permission() {
         if (ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
         {
@@ -57,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             initViewPager();
         }
     }
+
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull @NotNull String[] permissions, @NonNull @NotNull int[] grantResults) {
@@ -75,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
             }
         }
     }
+
 
     private void initViewPager() {
         ViewPager viewPager = findViewById(R.id.viewPager);
@@ -124,6 +124,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         }
     }
 
+    /**
+     * Function will get all of audio from device without duplicated albums
+     * @param context - function state / context
+     * @return tempAudioList - temporary list of songs on device
+     */
     public ArrayList<MusicFiles> getAllAudio(Context context)
     {
         SharedPreferences preferences = getSharedPreferences(MY_SORT_PREF, MODE_PRIVATE);
@@ -149,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 MediaStore.Audio.Media.ALBUM,
                 MediaStore.Audio.Media.TITLE,
                 MediaStore.Audio.Media.DURATION,
-                MediaStore.Audio.Media.DATA, // for path
+                MediaStore.Audio.Media.DATA,
                 MediaStore.Audio.Media.ARTIST,
                 MediaStore.Audio.Media._ID
         };
@@ -165,7 +170,6 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
                 String id = cursor.getString(5);
 
                 MusicFiles musicFiles = new MusicFiles(path, title, artist, album, duration, id);
-                //  take log.e for check
                 Log.e("Path: " + path, " | Album: " + album);
                 tempAudioList.add(musicFiles);
 
@@ -180,6 +184,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return tempAudioList;
     }
 
+    /**
+     * Search bar
+     * @param menu - container for search bar item
+     * @return super.onCreateOptionsMenu(menu) - new item (search bar) in menu
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.search, menu);
@@ -189,11 +198,17 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return super.onCreateOptionsMenu(menu);
     }
 
+
     @Override
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
 
+    /**
+     * Search listing
+     * @param newText - user text written in search bar
+     * @return false - returns a song list that matches the entered text
+     */
     @Override
     public boolean onQueryTextChange(String newText) {
         String userInput = newText.toLowerCase();
@@ -210,6 +225,11 @@ public class MainActivity extends AppCompatActivity implements SearchView.OnQuer
         return true;
     }
 
+    /**
+     * Sorting menu
+     * @param item - type of sorting
+     * @return super.onOptionsItemSelected(item) - selected sort type
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         SharedPreferences.Editor editor = getSharedPreferences(MY_SORT_PREF, MODE_PRIVATE).edit();

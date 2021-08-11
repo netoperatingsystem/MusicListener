@@ -8,7 +8,12 @@ Application for listening music
 - Support for \*.mp3 and \*.wav formats
 - Listing all songs from device
 - Displaying current and total song time
-- Animation while playing a song
+- Repeat song
+- Deleting songs
+- Shuffle song list
+- Albums tab
+- Search bar
+- Album playlist
 
 ## Methodology
 
