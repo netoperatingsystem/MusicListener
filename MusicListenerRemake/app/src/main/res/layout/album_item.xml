@@ -11,7 +11,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPrimary"
+        android:background="@drawable/music_item_border"
         android:id="@+id/relative_layout">
 
         <ImageView
@@ -26,7 +26,7 @@
             android:id="@+id/album_name"
             android:layout_alignParentBottom="true"
             android:text="Album"
-            android:textColor="#FFF"
+            android:textColor="@color/white"
             android:singleLine="true"
             android:gravity="center_horizontal"
             android:layout_centerHorizontal="true"

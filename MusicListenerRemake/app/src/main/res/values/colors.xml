@@ -14,4 +14,6 @@
     <color name="tabActiveColor">#DD870601</color>
     <color name="songsColor">#FFFFFF</color>
     <color name="musicItemsColor">#FFFFFF</color>
+    <color name="fragmentBgColor">#111111</color>
+    <color name="activeBtn">#2196F3</color>
 </resources>
