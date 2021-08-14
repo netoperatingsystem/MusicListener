@@ -1,7 +1,6 @@
 package com.example.musiclistenerremake;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.media.MediaMetadataRetriever;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -11,10 +10,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -386,7 +383,6 @@ public class PlayerActivity extends AppCompatActivity {
         cover_art = findViewById(R.id.cover_art);
         nextBtn = findViewById(R.id.id_next);
         prevBtn = findViewById(R.id.id_prev);
-        backBtn = findViewById(R.id.back_btn);
         shuffleBtn = findViewById(R.id.shuffle);
         repeatBtn = findViewById(R.id.id_repeat);
         playPauseBtn = findViewById(R.id.play_pause);
