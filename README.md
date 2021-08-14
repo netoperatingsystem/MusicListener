@@ -4,14 +4,15 @@ Application for listening music
 
 ## Features
 
-- Playing songs
+- Giving permission to use songs from your phone
 - Support for \*.mp3 and \*.wav formats
 - Listing all songs from device
 - Displaying current and total song time
-- Repeat song
+- Song sorting by name/date/file size
 - Shuffle song list
-- Albums tab
 - Search bar
+- Repeat song
+- Songs / Albums tab
 - Album playlist
 
 ## Testing
