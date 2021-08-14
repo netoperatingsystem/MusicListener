@@ -14,6 +14,7 @@ Application for listening music
 - Repeat song
 - Songs / Albums tab
 - Album playlist
+- Glide library
 
 ## Testing
 
