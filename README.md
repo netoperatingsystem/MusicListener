@@ -9,7 +9,6 @@ Application for listening music
 - Listing all songs from device
 - Displaying current and total song time
 - Repeat song
-- Deleting songs
 - Shuffle song list
 - Albums tab
 - Search bar
