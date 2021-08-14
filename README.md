@@ -2,7 +2,7 @@
 
 Application for listening music
 
-## Features: 
+## Features
 
 - Playing songs
 - Support for \*.mp3 and \*.wav formats
@@ -13,6 +13,10 @@ Application for listening music
 - Albums tab
 - Search bar
 - Album playlist
+
+## Testing
+
+[Monkey Tests](https://raw.githubusercontent.com/netoperatingsystem/MusicListener/main/monkey_logs/monke-logs-50k.log)
 
 ## Methodology
 
