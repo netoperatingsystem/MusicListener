@@ -16,7 +16,7 @@ Application for listening music
 
 ## Testing
 
-[Monkey Tests](https://raw.githubusercontent.com/netoperatingsystem/MusicListener/main/monkey_logs/monke-logs-50k.log)
+[Monkey Tests](https://github.com/netoperatingsystem/MusicListener/tree/main/monkey_logs)
 
 ## Methodology
 
