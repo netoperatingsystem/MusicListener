@@ -15,7 +15,7 @@ Application for listening music
 - Songs / Albums tab
 - Album playlist
 - Glide library - song covers
-- 
+
 ## Testing
 
 [Monkey Tests](https://github.com/netoperatingsystem/MusicListener/tree/main/monkey_logs)
