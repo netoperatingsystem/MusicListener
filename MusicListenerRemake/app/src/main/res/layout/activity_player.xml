@@ -71,7 +71,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is song name"
+        android:text="@string/song_name_example"
         android:id="@+id/song_name"
         android:layout_below="@+id/card"
         android:textColor="@color/white"
@@ -86,7 +86,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is song artist"
+        android:text="@string/artist_name_example"
         android:id="@+id/song_artist"
         android:layout_below="@+id/song_name"
         android:textColor="@color/white"
@@ -168,7 +168,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1:28"
+            android:text="@string/start_time_example"
             android:id="@+id/durationPlayed"
             android:textColor="@color/white"
             android:layout_marginStart="10dp"
@@ -177,7 +177,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="4:28"
+            android:text="@string/end_time_example"
             android:id="@+id/durationTotal"
             android:textColor="@color/white"
             android:layout_marginEnd="10dp"
