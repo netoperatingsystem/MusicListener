@@ -15,6 +15,7 @@ Application for listening music
 - Songs / Albums tab
 - Album playlist
 - Glide library - song covers
+- Playlists
 
 ## Testing
 
