@@ -20,7 +20,7 @@ Application for listening music
 ## Testing
 
 - [Monkey Tests](https://github.com/netoperatingsystem/MusicListener/tree/main/monkey_logs)
-- [Unit test] (https://github.com/netoperatingsystem/MusicListener/tree/main/MusicListenerRemake/app/src/test/java/com/example/musiclistenerremake)
+- [Unit test](https://github.com/netoperatingsystem/MusicListener/tree/main/MusicListenerRemake/app/src/test/java/com/example/musiclistenerremake)
 
 ## Methodology
 
