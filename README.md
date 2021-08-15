@@ -19,7 +19,8 @@ Application for listening music
 
 ## Testing
 
-[Monkey Tests](https://github.com/netoperatingsystem/MusicListener/tree/main/monkey_logs)
+- [Monkey Tests](https://github.com/netoperatingsystem/MusicListener/tree/main/monkey_logs)
+- Unit test
 
 ## Methodology
 
