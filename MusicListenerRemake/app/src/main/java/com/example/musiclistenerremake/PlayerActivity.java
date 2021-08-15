@@ -261,7 +261,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     /**
      * Randomizer for random song button
-     * @param i
+     * @param i - size of songs list
      * @return random.nextInt(i + 1)
      */
     private int getRandom(int i) {
