@@ -12,7 +12,7 @@ public class PlayerActivityTest {
 
     @Before
     public void init(){
-        timetime= new TimeConvertingTest("1:24", "60");
+        timetime= new TimeConvertingTest("", "");
     }
 
     @Test
